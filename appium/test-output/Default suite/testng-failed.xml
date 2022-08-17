@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="appium.appium.AppiumBasics">
+      <class name="appium.appium.LongPress">
         <methods>
-          <include name="AppiumTest"/>
+          <include name="Press"/>
         </methods>
-      </class> <!-- appium.appium.AppiumBasics -->
+      </class> <!-- appium.appium.LongPress -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
