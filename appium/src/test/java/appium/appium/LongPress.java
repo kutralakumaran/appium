@@ -6,20 +6,15 @@ import java.net.URL;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.annotations.Test;
 
 import io.appium.java_client.AppiumBy;
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 
-public class AppiumBasics {
-
-	@Test
-	public void AppiumTest() throws MalformedURLException, InterruptedException {
+public class LongPress {
+	public void Press() throws MalformedURLException, InterruptedException {
 		AppiumDriverLocalService sevice=new AppiumServiceBuilder().withAppiumJS(new File("C:\\Users\\Kumaran's\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js"))
 				.withIPAddress("127.0.0.1").usingPort(4723).build();
 		sevice.start();
@@ -30,19 +25,13 @@ public class AppiumBasics {
 		
 		
 		AndroidDriver driver=new AndroidDriver(new URL("http://127.0.0.1:4723"), optionss);
-		driver.findElement(AppiumBy.accessibilityId("Preference")).click();
-		driver.findElement(AppiumBy.xpath("//android.widget.TextView[@content-desc=\"3. Preference dependencies\"]")).click();
-		driver.findElement(AppiumBy.id("android:id/checkbox")).click();
-		Thread.sleep(2000);
-		driver.findElement(AppiumBy.xpath("(//android.widget.RelativeLayout)[2]")).click();
-		String name = driver.findElement(By.id("android:id/alertTitle")).getText();
-		Assert.assertEquals(name,"WiFi settings");
-		driver.findElement(AppiumBy.id("android:id/edit")).sendKeys("kumaran");
-		driver.findElement(AppiumBy.id("android:id/button1")).click();
-		
+		driver.findElement(AppiumBy.accessibilityId("Views")).click();
+		driver.findElement(AppiumBy.accessibilityId("Expandable Lists")).click();
+		driver.findElement(AppiumBy.accessibilityId("1. Custom Adapter")).click();
+		driver.findElement(By.xpath("//android.widget.TextView[text()='People Names']"));
+		driver.executeScript("m", null)
 		
 		driver.quit();
 		sevice.stop();				
 	}
-
 }
